@@ -1,11 +1,11 @@
-# bunadmin-plugin-strapi-blog-example
+# bunadmin-plugin-strapi-blog
 [This plugin needs to be used in BunAdmin](https://github.com/bunred/bunadmin)
 
 ### How to use
 
+copy object from [public library](https://github.com/bunred/bunadmin-plugins/blob/master/navigation/blog/bunred/bunadmin-plugin-strapi-blog.json) into array (:bunadmin/plugins-info.json)
 ```
-cd [bunadmin path]/plugins/
-git clone https://github.com/bunred/bunadmin-plugin-strapi-blog-example.git bunadmin-blog
+node plugins-update.js
 ```
 
 ### Tips
