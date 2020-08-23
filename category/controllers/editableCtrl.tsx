@@ -1,9 +1,11 @@
-import { EditableDataType } from "@/components/CommonTable/models/editable"
-import { EditableCtrl } from "@plugins/data-source-strapi/types"
-import addSer from "@plugins/data-source-strapi/services/addSer"
-import updateSer from "@plugins/data-source-strapi/services/updateSer"
-import deleteSer from "@plugins/data-source-strapi/services/deleteSer"
 import Type from "../types"
+import { EditableDataType } from "@bunred/bunadmin"
+import {
+  addSer,
+  updateSer,
+  deleteSer,
+  EditableCtrl
+} from "bunadmin-source-strapi"
 
 function editableCtrl({ SchemaName }: EditableCtrl): EditableDataType<Type> {
   return {

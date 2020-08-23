@@ -1,18 +1,15 @@
-import request from "@/utils/scripts/request"
-import storedToken from "@/utils/scripts/storedToken"
-import { ENV } from "@/utils/config"
 import Type from "../types"
 import { SchemaName } from "../plugin"
-import { notice } from "@/core"
+import { ENV, request, storedToken, notice } from "@bunred/bunadmin"
 
-export default async function updateSer(newData: Type, oldData: Type) {
+export default async function addSer(newData: Type) {
   const token = await storedToken()
 
   const res = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}/${oldData.id}`,
+    `/content-manager/explorer/application::${SchemaName}.${SchemaName}`,
     {
       prefix: ENV.MAIN_URL,
-      method: "PUT",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
       },
@@ -24,7 +21,7 @@ export default async function updateSer(newData: Type, oldData: Type) {
     await notice({
       title: "Sorry, you can't update this post",
       severity: "warning",
-      content: JSON.stringify(oldData)
+      content: JSON.stringify(newData)
     })
   } else {
     await notice({

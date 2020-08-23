@@ -3,12 +3,13 @@ import { Column } from "material-table"
 import Type from "./types"
 import { SchemaName, ParentName } from "./plugin"
 import { TFunction } from "i18next"
-import { fixTreeDataTr } from "@/utils/scripts/muiTable"
-import ParentSelector, {
+import {
+  fixTreeDataTr,
+  ParentSelector,
   CustomParentData,
   CustomParentSer
-} from "@/components/CommonSelector/ParentSelector"
-import filtersQuery from "@plugins/data-source-strapi/services/filtersQuery"
+} from "@bunred/bunadmin"
+import { filtersQuery } from "bunadmin-source-strapi"
 
 async function queryParent(rowData: Type) {
   const res = await filtersQuery({

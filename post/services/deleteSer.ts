@@ -1,9 +1,6 @@
-import request from "@/utils/scripts/request"
-import storedToken from "@/utils/scripts/storedToken"
-import { ENV } from "@/utils/config"
 import Type from "../types"
 import { SchemaName } from "../plugin"
-import { notice } from "@/core"
+import { ENV, request, storedToken, notice } from "@bunred/bunadmin"
 
 export default async function deleteSer(oldData: Type) {
   const token = await storedToken()
