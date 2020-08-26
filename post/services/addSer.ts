@@ -5,17 +5,14 @@ import { ENV, request, storedToken, notice } from "@bunred/bunadmin"
 export default async function addSer(newData: Type) {
   const token = await storedToken()
 
-  const res = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}`,
-    {
-      prefix: ENV.MAIN_URL,
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      data: newData
-    }
-  )
+  const res = await request(`/${SchemaName}`, {
+    prefix: ENV.MAIN_URL,
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    data: newData
+  })
 
   if (res.error) {
     await notice({

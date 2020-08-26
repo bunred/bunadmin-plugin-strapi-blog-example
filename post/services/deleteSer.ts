@@ -5,16 +5,13 @@ import { ENV, request, storedToken, notice } from "@bunred/bunadmin"
 export default async function deleteSer(oldData: Type) {
   const token = await storedToken()
 
-  const res = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}/${oldData.id}`,
-    {
-      prefix: ENV.MAIN_URL,
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+  const res = await request(`/${SchemaName}`, {
+    prefix: ENV.MAIN_URL,
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`
     }
-  )
+  })
 
   if (res.error) {
     await notice({

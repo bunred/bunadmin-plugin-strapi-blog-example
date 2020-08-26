@@ -5,17 +5,14 @@ import { ENV, request, storedToken, notice } from "@bunred/bunadmin"
 export default async function updateSer(newData: Type, oldData: Type) {
   const token = await storedToken()
 
-  const res = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}/${oldData.id}`,
-    {
-      prefix: ENV.MAIN_URL,
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      data: newData
-    }
-  )
+  const res = await request(`/${SchemaName}`, {
+    prefix: ENV.MAIN_URL,
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    data: newData
+  })
 
   if (res.error) {
     await notice({

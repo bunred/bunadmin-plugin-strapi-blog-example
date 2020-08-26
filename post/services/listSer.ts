@@ -22,29 +22,23 @@ export default async function listSer(query: Query<any>) {
     _start: page * pageSize
   }
 
-  const data = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}`,
-    {
-      params,
-      prefix: ENV.AUTH_URL,
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+  const data = await request(`/${SchemaName}`, {
+    params,
+    prefix: ENV.AUTH_URL,
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
     }
-  )
+  })
 
-  const { count } = await request(
-    `/content-manager/explorer/application::${SchemaName}.${SchemaName}/count`,
-    {
-      params,
-      prefix: ENV.AUTH_URL,
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+  const { count } = await request(`/${SchemaName}/count`, {
+    params,
+    prefix: ENV.AUTH_URL,
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
     }
-  )
+  })
 
   return {
     data,
