@@ -22,9 +22,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "./dist"
+    "outDir": "dist"
   },
   "exclude": [
     "node_modules",
